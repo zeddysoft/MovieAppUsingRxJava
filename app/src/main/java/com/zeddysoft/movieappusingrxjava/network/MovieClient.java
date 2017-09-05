@@ -9,11 +9,14 @@ import com.zeddysoft.movieappusingrxjava.model.MovieListResponse;
 import com.zeddysoft.movieappusingrxjava.model.ReviewListResponse;
 import com.zeddysoft.movieappusingrxjava.model.TrailerListResponse;
 import com.zeddysoft.movieappusingrxjava.util.MovieFilter;
+import com.zeddysoft.movieappusingrxjava.util.NetworkUtils;
 
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Observable;
+
+import static android.R.attr.filter;
 
 /**
  * Created by Azeez.Taiwo on 8/22/2017.
@@ -43,7 +46,7 @@ public class MovieClient {
         return instance;
     }
 
-    public Observable<MovieListResponse> getMovies(MovieFilter filter) {
+    public Observable<MovieListResponse> getMovies(@MovieFilter.movieFilter int movieFilter) {
         if(filter == MovieFilter.HIGH_RATED){
             return movieService.getHighRatedMovies(apiKey);
         }

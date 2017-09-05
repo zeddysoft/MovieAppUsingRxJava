@@ -100,7 +100,7 @@ public class MoviePosterActivity extends AppCompatActivity {
         moviePosterView.setAdapter(movieAdapter);
     }
 
-    private void showMovies(MovieFilter filter) {
+    private void showMovies(@MovieFilter.movieFilter int filter) {
         progressBar.setVisibility(View.VISIBLE);
         subscription = MovieClient.getInstance()
                 .getMovies(filter)
