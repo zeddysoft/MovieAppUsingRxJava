@@ -15,7 +15,6 @@ public class MovieFilter {
 
     @Retention(RetentionPolicy.SOURCE)
     @IntDef({POPULAR, HIGH_RATED})
-    public @interface movieFilter{};
-
+    public @interface movieFilter{}
 
 }
