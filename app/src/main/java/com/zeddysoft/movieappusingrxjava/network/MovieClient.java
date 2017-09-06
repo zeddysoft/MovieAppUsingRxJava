@@ -1,5 +1,6 @@
 package com.zeddysoft.movieappusingrxjava.network;
 
+
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -14,6 +15,7 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Observable;
+
 
 /**
  * Created by Azeez.Taiwo on 8/22/2017.
@@ -43,8 +45,9 @@ public class MovieClient {
         return instance;
     }
 
-    public Observable<MovieListResponse> getMovies(MovieFilter filter) {
-        if(filter == MovieFilter.HIGH_RATED){
+    public Observable<MovieListResponse> getMovies(@MovieFilter.movieFilter int movieFilter) {
+        if(movieFilter == MovieFilter.HIGH_RATED){
+
             return movieService.getHighRatedMovies(apiKey);
         }
         return movieService.getPopularMovies(apiKey);
